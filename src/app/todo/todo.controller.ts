@@ -9,6 +9,7 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { ObjectId } from 'mongoose';
 import { CreateTodoDto, UpdateTodoDto } from './dto';
 import { TodoService } from './todo.service';
@@ -17,6 +18,7 @@ import { TodoService } from './todo.service';
   path: 'todo',
   version: ['1'],
 })
+@ApiTags('Todo')
 export class TodoController {
   constructor(@Inject() private readonly todoSrv: TodoService) {}
 

@@ -1,4 +1,5 @@
 import { PartialType } from '@nestjs/mapped-types';
+import { ApiProperty } from '@nestjs/swagger';
 import {
   IsBoolean,
   IsNotEmpty,
@@ -9,12 +10,14 @@ import {
 } from 'class-validator';
 
 export class CreateTodoDto {
+  @ApiProperty()
   @IsNotEmpty()
   @IsString()
   @MinLength(3)
   @MaxLength(100)
   title: string;
 
+  @ApiProperty()
   @IsOptional()
   @IsBoolean()
   completed?: boolean;
